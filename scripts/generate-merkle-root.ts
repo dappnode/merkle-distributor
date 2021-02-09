@@ -1,6 +1,7 @@
 import { program } from 'commander'
 import fs from 'fs'
-import { parseBalanceMap } from '../src/parse-balance-map'
+//import { parseBalanceMap } from '../src/parse-balance-map'
+import { parseNFTMap } from '../src/parse-nft-map'
 
 program
   .version('0.0.0')
@@ -15,4 +16,4 @@ const json = JSON.parse(fs.readFileSync(program.input, { encoding: 'utf8' }))
 
 if (typeof json !== 'object') throw new Error('Invalid JSON')
 
-console.log(JSON.stringify(parseBalanceMap(json)))
+console.log(JSON.stringify(parseNFTMap(json)))

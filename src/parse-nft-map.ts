@@ -9,11 +9,10 @@ const { isAddress, getAddress } = utils
 // and the tree has no additional distributions.
 interface MerkleDistributorInfo {
   merkleRoot: string
-  tokenTotal: string
   claims: {
     [account: string]: {
       index: number
-      amount: string
+      tokenId: string
       proof: string[]
       flags?: {
         [flag: string]: boolean
@@ -22,10 +21,9 @@ interface MerkleDistributorInfo {
   }
 }
 
-type OldFormat = { [account: string]: number | string }
-type NewFormat = { address: string; tokenId: string; reasons: string }
+type NFTList = { address: string; tokenId: string; reasons: string }
 
-export function parseBalanceMap(balances: NewFormat[]): MerkleDistributorInfo {
+export function parseNFTMap(balances: NFTList[]): MerkleDistributorInfo {
 
   const dataByAddress = balances.reduce<{
     [address: string]: { tokenId: BigNumber; flags?: { [flag: string]: boolean } }
@@ -39,42 +37,38 @@ export function parseBalanceMap(balances: NewFormat[]): MerkleDistributorInfo {
     if (parsedNum.lte(0)) throw new Error(`Invalid tokenId for account: ${account}`)
 
     const flags = {
-      isSOCKS: reasons.includes('NFTChallenge')
+      isNFT: reasons.includes('NFTChallenge')
     }
 
     memo[parsed] = { tokenId: parsedNum, ...(reasons === '' ? {} : { flags }) }
     return memo
   }, {})
 
-  const sortedAddresses = Object.keys(dataByAddress).sort()
+  // const sortedAddresses = Object.keys(dataByAddress).sort()
+  // We do not order them, this would allow adding new entries later
+  const sortedAddresses = Object.keys(dataByAddress)
 
   // construct a tree
   const tree = new NFT_Tree(
-    sortedAddresses.map((address) => ({ account: address, amount: dataByAddress[address].amount }))
+    sortedAddresses.map((address) => ({ account: address, tokenId: dataByAddress[address].tokenId }))
   )
 
   // generate claims
   const claims = sortedAddresses.reduce<{
-    [address: string]: { amount: string; index: number; proof: string[]; flags?: { [flag: string]: boolean } }
+    [address: string]: { tokenId: string; index: number; proof: string[]; flags?: { [flag: string]: boolean } }
   }>((memo, address, index) => {
-    const { amount, flags } = dataByAddress[address]
+    const { tokenId, flags } = dataByAddress[address]
     memo[address] = {
       index,
-      amount: amount.toHexString(),
-      proof: tree.getProof(index, address, amount),
+      tokenId: tokenId.toString(),
+      proof: tree.getProof(index, address, tokenId),
       ...(flags ? { flags } : {}),
     }
     return memo
   }, {})
 
-  const tokenTotal: BigNumber = sortedAddresses.reduce<BigNumber>(
-    (memo, key) => memo.add(dataByAddress[key].amount),
-    BigNumber.from(0)
-  )
-
   return {
     merkleRoot: tree.getHexRoot(),
-    tokenTotal: tokenTotal.toHexString(),
     claims,
   }
 }

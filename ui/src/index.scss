@@ -1,0 +1,91 @@
+:root {
+  --color-dappnode: #2fbcb2;
+  --color-dappnode-hover: #33ccc2;
+  --color-white: white;
+  --color-border: #e5e5e5;
+  --color-background: #f7f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  min-width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--color-background);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .top-menu {
+    > * {
+      margin-right: 1rem;
+    }
+
+    a {
+      opacity: 0.7;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: black;
+      &:hover {
+        color: var(--color-dappnode);
+      }
+    }
+  }
+}
+
+.claim-container {
+  margin-top: 5rem;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  align-items: center;
+
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+
+  padding: 2rem;
+
+  p {
+    color: var(--light-text-color);
+  }
+
+  .claim-form {
+    width: 100%;
+  }
+
+  .claim-button {
+    font-size: 1.5rem;
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.confetti {
+  position: absolute;
+  top: 100px;
+  left: 50vw;
+}

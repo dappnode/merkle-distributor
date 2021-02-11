@@ -1,7 +1,7 @@
 // @ts-ignore
-import WalletConnectProvider from "@walletconnect/web3-provider";
+import WalletConnectProvider from '@walletconnect/web3-provider'
 // @ts-ignore
-import Fortmatic from "fortmatic";
+import Fortmatic from 'fortmatic'
 
 export function getProviderOptions() {
   return {
@@ -17,5 +17,5 @@ export function getProviderOptions() {
         key: process.env.REACT_APP_FORTMATIC_KEY,
       },
     },
-  };
+  }
 }

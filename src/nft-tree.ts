@@ -3,7 +3,7 @@ import { BigNumber, utils } from 'ethers'
 
 export default class BalanceTree {
   private readonly tree: MerkleTree
-  
+
   constructor(ids: { account: string; tokenId: BigNumber }[]) {
     this.tree = new MerkleTree(
       ids.map(({ account, tokenId }, index) => {

@@ -26,7 +26,6 @@ type OldFormat = { [account: string]: number | string }
 type NewFormat = { address: string; tokenId: string; reasons: string }
 
 export function parseBalanceMap(balances: NewFormat[]): MerkleDistributorInfo {
-
   const dataByAddress = balances.reduce<{
     [address: string]: { tokenId: BigNumber; flags?: { [flag: string]: boolean } }
   }>((memo, { address: account, tokenId, reasons }) => {
@@ -39,7 +38,7 @@ export function parseBalanceMap(balances: NewFormat[]): MerkleDistributorInfo {
     if (parsedNum.lte(0)) throw new Error(`Invalid tokenId for account: ${account}`)
 
     const flags = {
-      isSOCKS: reasons.includes('NFTChallenge')
+      isSOCKS: reasons.includes('NFTChallenge'),
     }
 
     memo[parsed] = { tokenId: parsedNum, ...(reasons === '' ? {} : { flags }) }

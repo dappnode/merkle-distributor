@@ -24,7 +24,6 @@ interface MerkleDistributorInfo {
 type NFTList = { address: string; tokenId: string; reasons: string }
 
 export function parseNFTMap(balances: NFTList[]): MerkleDistributorInfo {
-
   const dataByAddress = balances.reduce<{
     [address: string]: { tokenId: BigNumber; flags?: { [flag: string]: boolean } }
   }>((memo, { address: account, tokenId, reasons }) => {
@@ -37,7 +36,7 @@ export function parseNFTMap(balances: NFTList[]): MerkleDistributorInfo {
     if (parsedNum.lte(0)) throw new Error(`Invalid tokenId for account: ${account}`)
 
     const flags = {
-      isNFT: reasons.includes('NFTChallenge')
+      isNFT: reasons.includes('NFTChallenge'),
     }
 
     memo[parsed] = { tokenId: parsedNum, ...(reasons === '' ? {} : { flags }) }

@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/merkle-distributor/static/css/main.0e95b3cf.chunk.css",
-    "main.js": "/merkle-distributor/static/js/main.ea7178f6.chunk.js",
-    "main.js.map": "/merkle-distributor/static/js/main.ea7178f6.chunk.js.map",
-    "runtime-main.js": "/merkle-distributor/static/js/runtime-main.764daada.js",
-    "runtime-main.js.map": "/merkle-distributor/static/js/runtime-main.764daada.js.map",
-    "static/css/2.150d169a.chunk.css": "/merkle-distributor/static/css/2.150d169a.chunk.css",
-    "static/js/2.c752fbf2.chunk.js": "/merkle-distributor/static/js/2.c752fbf2.chunk.js",
-    "static/js/2.c752fbf2.chunk.js.map": "/merkle-distributor/static/js/2.c752fbf2.chunk.js.map",
-    "index.html": "/merkle-distributor/index.html",
-    "static/css/2.150d169a.chunk.css.map": "/merkle-distributor/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.0e95b3cf.chunk.css.map": "/merkle-distributor/static/css/main.0e95b3cf.chunk.css.map",
-    "static/js/2.c752fbf2.chunk.js.LICENSE.txt": "/merkle-distributor/static/js/2.c752fbf2.chunk.js.LICENSE.txt",
-    "static/media/logo.93609302.png": "/merkle-distributor/static/media/logo.93609302.png"
+    "main.css": "/static/css/main.c541ae26.chunk.css",
+    "main.js": "/static/js/main.d811f2b9.chunk.js",
+    "main.js.map": "/static/js/main.d811f2b9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.447fe664.js",
+    "runtime-main.js.map": "/static/js/runtime-main.447fe664.js.map",
+    "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
+    "static/js/2.66a23325.chunk.js": "/static/js/2.66a23325.chunk.js",
+    "static/js/2.66a23325.chunk.js.map": "/static/js/2.66a23325.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.c541ae26.chunk.css.map": "/static/css/main.c541ae26.chunk.css.map",
+    "static/js/2.66a23325.chunk.js.LICENSE.txt": "/static/js/2.66a23325.chunk.js.LICENSE.txt",
+    "static/media/logo.93609302.png": "/static/media/logo.93609302.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.764daada.js",
+    "static/js/runtime-main.447fe664.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.c752fbf2.chunk.js",
-    "static/css/main.0e95b3cf.chunk.css",
-    "static/js/main.ea7178f6.chunk.js"
+    "static/js/2.66a23325.chunk.js",
+    "static/css/main.c541ae26.chunk.css",
+    "static/js/main.d811f2b9.chunk.js"
   ]
 }
